@@ -1,7 +1,7 @@
 module.exports = function (project) {
-    return function () {
+    return function (config, db) {
         return function (req, res, next) {
-            res.end('auth x');
+            next();
         }
     }
 }

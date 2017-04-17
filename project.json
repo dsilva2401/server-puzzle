@@ -13,6 +13,20 @@
         },
         "routers": [
             {
+                "path": "/",
+                "routes": [
+                    {
+                        "path": "/webapp",
+                        "method": "GET",
+                        "handlersPipeline": [
+                            {
+                                "handler": "webapp",
+                                "config": { "webapp": "login" }
+                            }
+                        ]
+                    }
+                ]
+            }, {
                 "path": "/api",
                 "routes": [
                     {
@@ -21,6 +35,9 @@
                         "handlersPipeline": [
                             {
                                 "handler": "authentication"
+                            }, {
+                                "handler": "listModelEntries",
+                                "config": { "model": "products" }
                             }
                         ]
                     }
@@ -28,5 +45,12 @@
             }
         ]
     },
-    "webapps": {}
+    "webapps": {
+        "login": {
+            "template": "single-form",
+            "templateSettings": {
+                "title": "Login"
+            }
+        }
+    }
 }

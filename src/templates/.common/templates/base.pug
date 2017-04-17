@@ -1,0 +1,16 @@
+html
+
+    head
+        title App
+        block csslibs
+        script.
+            window.webappData = '#{webappData}';
+            window.webappData = window.webappData.replace(/\&quot\;/g, '"');
+            window.webappData = window.webappData.substring(1, window.webappData.length-1);
+            window.webappData = JSON.parse(window.webappData);
+
+    body
+        block content
+        script(src="/templates/.common/libs/angular.min.js")
+        block jslibs
+        block scripts

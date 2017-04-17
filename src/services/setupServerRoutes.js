@@ -3,7 +3,7 @@ var express = require('express');
 var handlers = require('../httpHandlers')(project);
 
 module.exports = function (project) {
-    return function (expressApp) {
+    return function (expressApp, db) {
 
         // Setting up routers
         project.httpAPI.routers.forEach(function (routerData) {
@@ -17,7 +17,10 @@ module.exports = function (project) {
                     if (!handlers[handlerData.handler]) return;
                     router[routeData.method.toLowerCase()](
                         routeData.path,
-                        handlers[handlerData.handler]()
+                        handlers[handlerData.handler](
+                            handlerData.config || {},
+                            db
+                        )
                     )
                 })
 

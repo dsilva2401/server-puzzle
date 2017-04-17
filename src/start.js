@@ -2,13 +2,16 @@ var project = require('../project.json');
 var services = require('./services')(project);
 
 // Connect to database
-services.connectMongoDB().then(function () {
+services.connectMongoDB().then(function (db) {
 
     // Start http server
-    services.startHTTPServer().then(function (instance) {
+    services.startHTTPServer().then(function (server) {
+
+        // Setup statics
+        services.setupServerStatics(server.app);
 
         // Setup routes
-        services.setupServerRoutes(instance.app);
+        services.setupServerRoutes(server.app, db);
 
     });
 
