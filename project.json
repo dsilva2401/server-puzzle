@@ -1,0 +1,32 @@
+{
+    "db": {
+        "mongo": {
+            "config": {
+                "url": "mongodb://test:test123@ds161890.mlab.com:61890/puzzle"
+            },
+            "models": {}
+        }
+    },
+    "httpAPI": {
+        "config": {
+            "port": 3000
+        },
+        "routers": [
+            {
+                "path": "/api",
+                "routes": [
+                    {
+                        "path": "/test",
+                        "method": "GET",
+                        "handlersPipeline": [
+                            {
+                                "handler": "authentication"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "webapps": {}
+}

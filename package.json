@@ -1,0 +1,24 @@
+{
+  "name": "server-puzzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsilva2401/server-puzzle.git"
+  },
+  "author": "Diego Silva <dsilva2401@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsilva2401/server-puzzle/issues"
+  },
+  "homepage": "https://github.com/dsilva2401/server-puzzle#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.25",
+    "q": "^1.5.0"
+  }
+}
