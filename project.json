@@ -2,7 +2,7 @@
     "db": {
         "mongo": {
             "config": {
-                "url": "mongodb://127.0.0.1:27017/app"
+                "url": "mongodb://test:test123@ds161890.mlab.com:61890/puzzle"
             },
             "models": {
                 "products": {

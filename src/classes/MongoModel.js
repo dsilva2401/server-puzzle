@@ -9,7 +9,7 @@ module.exports = function MongoModel (db, name) {
 
     // Methods
     this.getResponseTime = function () {
-        let deferred = Q.defer();
+        var deferred = Q.defer();
         var start = Date.now();
         slf.collection.findOne({}, function (err, resp) {
             if (err) {
