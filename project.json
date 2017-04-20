@@ -75,7 +75,7 @@
     },
     "webapps": {
         "searchProducts": {
-            "template": "search-items",
+            "template": "search-itemsy",
             "templateSettings": {
                 "resource": ["api", "searchProducts"],
                 "model": "products",
