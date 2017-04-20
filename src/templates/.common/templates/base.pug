@@ -3,14 +3,21 @@ html
     head
         title App
         block csslibs
+        block csssheets
         script.
             window.webappData = '#{webappData}';
             window.webappData = window.webappData.replace(/\&quot\;/g, '"');
-            window.webappData = window.webappData.substring(1, window.webappData.length-1);
             window.webappData = JSON.parse(window.webappData);
+            window.httpAPI = '#{httpAPI}';
+            window.httpAPI = window.httpAPI.replace(/\&quot\;/g, '"');
+            window.httpAPI = JSON.parse(window.httpAPI);
 
-    body
+    body(ng-app="app", ng-controller="mainController")
         block content
         script(src="/templates/.common/libs/angular.min.js")
         block jslibs
+        script(src="/templates/.common/scripts/app.js")
+        script(src="/templates/.common/scripts/app.filters.js")
+        script(src="/templates/.common/scripts/app.factories.js")
+        script(src="/templates/.common/scripts/app.mainController.js")
         block scripts

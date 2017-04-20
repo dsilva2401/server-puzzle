@@ -1,0 +1,42 @@
+extends ../.common/templates/base.pug
+
+block csssheets
+    link(rel="stylesheet", href="/templates/search-items/app/app.style.css")
+
+block content
+    div(ng-controller="searchController").main-container
+
+        //- Content container
+        div.container
+
+            div(class="results-container {{ models.currentItem ? 'half' : ''}}")
+                table
+                    tr
+                        th(ng-repeat="r in models.rows") {{ r | translate }}
+                    tr(ng-repeat="e in models.entries", ng-click="methods.setCurrentItem(e)")
+                        td(ng-repeat="r in models.rows") {{ e[r] }}
+                button(
+                    ng-if="models.loadMore",
+                    ng-click="methods.loadEntries(1)"
+                ).load-more-btn {{ 'load-more' | translate }}
+
+            div(ng-if="models.currentItem").preview
+                div(ng-repeat="p in models.preview")
+                    p.key {{ p }}
+                    p.value {{ models.currentItem[p] }}
+
+        
+        //- Filters container
+        div(class="filters-container {{ models.showFilters ? 'show' : '' }}")
+            form(ng-submit="methods.loadEntries(0)").filters-subcontainer
+                div(ng-repeat="s in models.search")
+                    p
+                        label {{ s | translate }}
+                    p
+                        input(ng-model="models.searchModels[s]")
+                div
+                    button(ng-click="methods.loadEntries(0)") {{ 'search' | translate }}
+            button(ng-click="methods.toggleFiltersPanel()").filters-toggle-btn {{ 'filters' | translate }}
+
+block scripts
+    script(src="/templates/search-items/app/search.controller.js")

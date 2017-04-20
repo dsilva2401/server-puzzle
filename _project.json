@@ -2,7 +2,7 @@
     "db": {
         "mongo": {
             "config": {
-                "url": "mongodb://127.0.0.1:27017/app"
+                "url": "mongodb://test:test123@ds161890.mlab.com:61890/puzzle"
             },
             "models": {
                 "products": {
@@ -81,7 +81,7 @@
                 "model": "products",
                 "rows": ["code", "description"],
                 "search": ["code", "description"],
-                "preview": ["code", "description", "unit", "price" ]
+                "preview": ["code", "description", "unit", "price", "margin", "suggested"]
             }
         },
         "login": {
@@ -89,8 +89,7 @@
             "templateSettings": {
                 "action": ["api", "product"],
                 "fields": [
-                    {"username": "string"},
-                    {"password": "string"}
+                    {"name": "string"}
                 ]
             }
         }

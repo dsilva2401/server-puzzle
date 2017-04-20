@@ -6,11 +6,13 @@ module.exports = function (project) {
     return function (expressApp, db) {
 
         // Setting up routers
-        project.httpAPI.routers.forEach(function (routerData) {
+        Object.keys(project.httpAPI.routers).forEach(function (routerKey) {
+            var routerData = project.httpAPI.routers[routerKey];
             var router = express.Router();
 
             // Setting up routes
-            routerData.routes.forEach(function (routeData) {
+            Object.keys(routerData.routes).forEach(function (routeKey) {
+                var routeData = routerData.routes[routeKey];
 
                 // Setting up handlers
                 routeData.handlersPipeline.forEach(function (handlerData) {

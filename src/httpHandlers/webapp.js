@@ -9,9 +9,11 @@ module.exports = function (project) {
                 __dirname,
                 '../templates/'+webappData.template+'/index.pug'
             );
-            var webappDataString = JSON.stringify(webappData)
+            var webappDataString = JSON.stringify(webappData);
+            var httpAPIString = JSON.stringify(project.httpAPI);
             res.send(pug.compileFile(templateFile)({
-                webappData: JSON.stringify(webappDataString)
+                webappData: webappDataString,
+                httpAPI: httpAPIString
             }))
             res.end();
         }
